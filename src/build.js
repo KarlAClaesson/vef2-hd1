@@ -18,18 +18,16 @@ async function main() {
         const path = join(DATA_DIR, file);
         const data = await fs.readFile(path);
         const str = data.toString('utf-8');
-
-        const parsed = parse(str);
-        
-
-        const dataSet = dataSetTemplate(parsed);
-        /* const slug = parsed.metadata.slug; */
+    
+        const dataSet = dataSetTemplate(str);
         const filename = join(OUTPUT_DIR, `${file}.html`);
 
-        const written = await fs.writeFile(filename, dataSet);
+        /* const written = await fs.writeFile(filename, dataSet); */
 
         
     }
+
+    /* await fs.writeFile('index.html', index, {flag: 'w+'}); */
 
 }
 
