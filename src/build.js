@@ -20,7 +20,6 @@ async function main() {
 
         const stats = calculateStats(parsed);
         const dataSet = dataSetTemplate(parsed, stats);
-        console.log('stats :>> ', stats);
 
         const filename = join(OUTPUT_DIR, `${file}.html`);
         await fs.writeFile(filename, dataSet);

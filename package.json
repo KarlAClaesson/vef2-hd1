@@ -24,6 +24,7 @@
     "gitignore": "^0.7.0",
     "gray-matter": "^4.0.3",
     "marked": "^4.0.12",
+    "number-parsing": "^0.3.2",
     "prettier": "^2.5.1",
     "yarn": "^1.22.17"
   },
