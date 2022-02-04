@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 import graymatter from 'gray-matter';
 import { marked } from 'marked';
 
-import { dataSetTemplate, makeHTML } from './make-html.js';
+import { dataSetTemplate } from './make-html.js';
 import { parse } from './parser.js'
 
 
