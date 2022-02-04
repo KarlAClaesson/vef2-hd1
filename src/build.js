@@ -3,6 +3,7 @@ import { promises as fs } from 'fs';
 
 import { dataSetTemplate } from './make-html.js';
 import { parse } from './parser.js'
+import { calculateStats } from './computations.js';
 
 
 const DATA_DIR = './data';
@@ -15,16 +16,17 @@ async function main() {
         const path = join(DATA_DIR, file);
         const data = await fs.readFile(path);
         const str = data.toString('utf-8');
-    
-        const dataSet = dataSetTemplate(str);
-        const filename = join(OUTPUT_DIR, `${file}.html`);
+        const parsed = parse(str);
 
-        const written = await fs.writeFile(filename, dataSet);
+        const stats = calculateStats(parsed);
+        const dataSet = dataSetTemplate(parsed, stats);
+        console.log('stats :>> ', stats);
+
+        const filename = join(OUTPUT_DIR, `${file}.html`);
+        await fs.writeFile(filename, dataSet);
 
         
     }
-
-    /* await fs.writeFile('index.html', index, {flag: 'w+'}); */
 
 }
 
